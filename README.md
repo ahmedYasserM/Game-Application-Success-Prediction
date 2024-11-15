@@ -30,9 +30,8 @@
     ```python
     data['Languages'].fillna(data['Languages'].mode()[0], inplace= True)
     ```
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
-## Managing Unique Values
+### Managing Unique Values
 
 - __Checking__ if the columns containing unique values 
 
@@ -47,7 +46,7 @@
   ```
 
 
-## Handling Date
+### Handling Date
 
 - Converting date columns __Original Release Date__, __Current Version Release Date__ from dtype object to int64 by making type first as datetime64 
 
@@ -58,7 +57,7 @@
   ```
 
 
-## Managing Categorical Columns
+### Managing Categorical Columns
 
 - Using __ANOVA__ technique to test correlation between the categorical columns are __Primary Genre__, __Genres__, __Developer__, __Languages__ and numerical column __Average User Rating__. 
 
@@ -78,7 +77,7 @@
   model = ols('Rating ~ Genres', data=data).fit()
   sm.stats.anova_lm(model, typ=2)
   ```
-<br>
+
 
   + __Language__: The result of __ANNOVA__ was greater than 0.5 so the column was dropped.
 
@@ -111,7 +110,7 @@
     ```
 
 
-## Anomaly Detection 
+### Anomaly Detection 
 
 - Using the __Isolation Forest Algorithm__ to detect anomalies by predicting if the sample is an anomaly or not, Then dropping the anomaly ones.
 
@@ -123,9 +122,9 @@
   data_without_outliers=train_data.loc[train_data['anomaly']!=-1]
   X_train=data_without_outliers.drop(['Average User Rating','anomaly'],axis=1)
   ```
-<br> <br> <br> <br>
 
-## Normalizing 
+
+### Normalizing 
 
 - By using __StandardScaler__ function that removes the __mean__ and __scales__ each feature/variable to unit variance.
 
@@ -145,23 +144,11 @@
 
   ![img1](./imgs/img1.png)
 
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-
-
 - Analysis was made on the four categories in Age rating column with the target column Average user rating was found that the distribution of the data was the same in all different category 
 
 
   ![img2](./imgs/img2.png)
 
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 - By getting the density for the two columns Size and Price  it was found that most of the values are __zeroes__ 
 
@@ -175,13 +162,6 @@
 
 
   ![img5](./imgs/img5.png)
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 -  We checked how would the Average user rating be affected if the value of the price column increases, it was found out that directly proportional as the price increases the Average user rating tends to increase but as the number of entries with the price more than ten is low (12 entry)  so this rows does not affect the target column
 
